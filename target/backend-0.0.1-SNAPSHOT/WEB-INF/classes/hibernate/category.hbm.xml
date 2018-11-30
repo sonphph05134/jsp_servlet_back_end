@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE	hibernate-mapping PUBLIC
+			"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+			"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="io.sonph.assignment.model.Category" table="Categories">
+		<id name="id" type="int">
+			<column name="Id" not-null="true"/>
+			<generator class="identity" />
+		</id>
+		<property name="fatherId" type="int" column="FatherId" not-null="false"/>
+		<property name="name" type="string" column="Name" not-null="true"/>
+		<property name="sortNo" type="int" column="SortNo" not-null="false"/>
+		
+		<many-to-one name="category" column="FatherId" class="io.sonph.assignment.model.Category"
+												insert="false" update="false" lazy="false" fetch="join">
+		</many-to-one>
+
+		<set name="subCategories" table="Categories" lazy="false" fetch="join" order-by="SortNo">
+			<key column="FatherId"></key>
+			<one-to-many class="io.sonph.assignment.model.Category"/>
+		</set>
+	</class>
+</hibernate-mapping>

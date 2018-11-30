@@ -1,0 +1,21 @@
+
+.login-container {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: #000;
+	opacity: 0.5;
+}
+.login-content {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 400px;
+	min-height: 300px;
+	margin-left: -200px;
+	margin-top: -200px;
+	background: #fff;
+	padding: 20px;
+}

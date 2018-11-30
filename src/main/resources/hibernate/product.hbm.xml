@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE	hibernate-mapping PUBLIC
+			"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+			"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="io.sonph.assignment.model.Product" table="Products">
+		<id name="id" type="int">
+			<column name="Id" not-null="true"/>
+			<generator class="identity" />
+		</id>
+		<property name="categoryId" type="int" column="CategoryId" not-null="false"/>
+		<property name="code" type="string" column="Code" not-null="true"/>
+		<property name="name" type="string" column="Name" not-null="true"/>
+		<property name="unitPrice" type="int" column="UnitPrice" not-null="false"/>
+		<property name="image" type="string" column="Image" not-null="false"/>
+		<property name="description" type="string" column="Description" not-null="false"/>
+		<property name="status" type="string" column="Status" not-null="false"/>
+		
+		<many-to-one name="category" column="CategoryId" class="io.sonph.assignment.model.Category"
+												insert="false" update="false" lazy="false" fetch="join">
+		</many-to-one>
+	</class>
+</hibernate-mapping>

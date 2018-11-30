@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE	hibernate-mapping PUBLIC
+			"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+			"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="io.sonph.assignment.model.Account" table="Accounts">
+		<id name="id" type="int">
+			<column name="Id" not-null="true"/>
+			<generator class="identity" />
+		</id>
+		<property name="username" type="string" column="Username" />
+		<property name="password" type="string" column="Password" />
+		<property name="type" type="string" column="Type" />
+		<property name="email" type="string" column="Email" />
+		<property name="fullName" type="string" column="FullName" />
+		<property name="address" type="string" column="Address" />
+	</class>
+</hibernate-mapping>
